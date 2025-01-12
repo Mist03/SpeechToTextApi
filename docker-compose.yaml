@@ -4,6 +4,6 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - '8082:8080'
+      - '48930:8080'
     environment:
       - FFMPEG_PATH=/usr/bin
