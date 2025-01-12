@@ -1,0 +1,9 @@
+version: "3"
+services:
+  webapp:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '8082:8080'
+    environment:
+      - FFMPEG_PATH=/usr/bin

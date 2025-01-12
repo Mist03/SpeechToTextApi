@@ -26,11 +26,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Remove container
-        run: sudo /usr/bin/docker ps -a --filter "ancestor=speech_to_text_api" -q | xargs -r sudo /usr/bin/docker stop && \
-          sudo /usr/bin/docker ps -a --filter "ancestor=speech_to_text_api" -q | xargs -r sudo /usr/bin/docker rm && \
-          sudo /usr/bin/docker images -q speech_to_text_api | xargs -r sudo /usr/bin/docker rmi
       - name: Build Docker containers
-        run: sudo /usr/bin/docker build -t speech_to_text_api .
+        run: sudo /usr/bin/docker compose build --no-cache
       - name: Start Docker containers
-        run: sudo /usr/bin/docker run --name SpeechToTextApi -d -p "8082:8080" speech_to_text_api
+        run: sudo /usr/bin/docker compose up -d
