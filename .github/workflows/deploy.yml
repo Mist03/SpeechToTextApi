@@ -29,4 +29,4 @@ jobs:
       - name: Build Docker containers
         run: sudo /usr/bin/docker build -t speech_to_text_api .
       - name: Start Docker containers
-        run: sudo /usr/bin/docker run --name SpeechToTextApi -p "8082:8080" speech_to_text_api
+        run: sudo /usr/bin/docker run --name SpeechToTextApi -d -p "8082:8080" speech_to_text_api
